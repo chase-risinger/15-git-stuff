@@ -1,4 +1,4 @@
-const Post = require('./Plog');
+const Post = require('./Post');
 const User = require('./User');
 
 User.hasMany(Post, {
@@ -9,3 +9,5 @@ Post.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'SET NULL'
 });
+
+module.exports = { User, Post };
