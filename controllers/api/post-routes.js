@@ -54,7 +54,7 @@ router.get('/:id', (req, res) => {
     })
         .then(dbPostData => {
             if (!dbPostData) {
-                res.status(404).json({ message: 'no post found with this id' });
+                res.status(404).json({ message: 'no listing found with this id' });
                 return
 
             }
@@ -65,5 +65,68 @@ router.get('/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+//create a new listing
+router.post('/', (req, res) => {
+    Post.create({
+        title: req.body.title,
+        description: req.body.description,
+        price: req.body.price,
+        user_id: 5
+    })
+        .then(dbPostData => res.json(dbPostData))
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+// update listing price/title/description
+router.put('/:id', (req, res) => {
+    Post.update(
+        {
+            title: req.body.title,
+            description: req.body.blog_content,
+            price: req.body.price
+        },
+        {
+            where: {
+                id: req.params.id
+            }
+        }
+    )
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No listing found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.delete('/:id', (req, res) => {
+    console.log('id', req.params.id);
+    Post.destroy({
+        where: {
+            id: req.params.id
+        }
+    })
+        .then(dbPostData => {
+            if (!dbPostData) {
+                res.status(404).json({ message: 'No listing found with this id' });
+                return;
+            }
+            res.json(dbPostData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
 
 module.exports = router;
