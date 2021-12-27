@@ -30,6 +30,9 @@ app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
+//express.static is a built-in express.js middleware function that can take all of the contents of a folder
+//and serve them as static assets
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use(require('./controllers/'));

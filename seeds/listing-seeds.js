@@ -1,6 +1,6 @@
-const { Post } = require('../models');
+const { Listing } = require('../models');
 
-const postData = [
+const listingData = [
     {
         title: 'tennis racket',
         description: 'an old worn out tennis racket that nobody wants anymore.',
@@ -63,6 +63,6 @@ const postData = [
     },
 ]
 
-const seedPosts = () => Post.bulkCreate(postData);
+const seedListings = () => Listing.bulkCreate(listingData);
 
-module.exports = seedPosts;
+module.exports = seedListings;

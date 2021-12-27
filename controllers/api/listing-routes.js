@@ -1,12 +1,12 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
-const { Post, User } = require('../../models');
+const { Listing, User } = require('../../models');
 
 
-// get all posts
+// get all listings
 router.get('/', (req, res) => {
     console.log('======================');
-    Post.findAll({
+    Listing.findAll({
         attributes: [
             'id',
             'title',
@@ -22,18 +22,18 @@ router.get('/', (req, res) => {
 
         ]
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbListingData => res.json(dbListingData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
         });
 });
 
-// get one post by it's id
+// get one listing by it's id
 router.get('/:id', (req, res) => {
     console.log('======================');
 
-    Post.findOne({
+    Listing.findOne({
         where: {
             id: req.params.id
         },
@@ -52,13 +52,13 @@ router.get('/:id', (req, res) => {
 
         ]
     })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbListingData => {
+            if (!dbListingData) {
                 res.status(404).json({ message: 'no listing found with this id' });
                 return
 
             }
-            res.json(dbPostData);
+            res.json(dbListingData);
         })
         .catch(err => {
             console.log(err);
@@ -68,13 +68,13 @@ router.get('/:id', (req, res) => {
 
 //create a new listing
 router.post('/', (req, res) => {
-    Post.create({
+    Listing.create({
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
         user_id: 5
     })
-        .then(dbPostData => res.json(dbPostData))
+        .then(dbListingData => res.json(dbListingData))
         .catch(err => {
             console.log(err);
             res.status(500).json(err);
@@ -83,7 +83,7 @@ router.post('/', (req, res) => {
 
 // update listing price/title/description
 router.put('/:id', (req, res) => {
-    Post.update(
+    Listing.update(
         {
             title: req.body.title,
             description: req.body.blog_content,
@@ -95,12 +95,12 @@ router.put('/:id', (req, res) => {
             }
         }
     )
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbListingData => {
+            if (!dbListingData) {
                 res.status(404).json({ message: 'No listing found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbListingData);
         })
         .catch(err => {
             console.log(err);
@@ -110,17 +110,17 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
     console.log('id', req.params.id);
-    Post.destroy({
+    Listing.destroy({
         where: {
             id: req.params.id
         }
     })
-        .then(dbPostData => {
-            if (!dbPostData) {
+        .then(dbListingData => {
+            if (!dbListingData) {
                 res.status(404).json({ message: 'No listing found with this id' });
                 return;
             }
-            res.json(dbPostData);
+            res.json(dbListingData);
         })
         .catch(err => {
             console.log(err);
