@@ -4,7 +4,7 @@ const { User, Listing } = require('../models');
 const userData = [
     {
         username: 'alesmonde0',
-        email: 'nwestnedge0@cbc.ca',
+        email: 'nwestnedge0@cbc.com',
         password: 'password123'
     },
     {
@@ -14,12 +14,12 @@ const userData = [
     },
     {
         username: 'iboddam2',
-        email: 'cstoneman2@last.fm',
+        email: 'cstoneman2@last.com',
         password: 'password123'
     },
     {
         username: 'dstanmer3',
-        email: 'ihellier3@goo.ne.jp',
+        email: 'ihellier3@goo.com',
         password: 'password123'
     },
     {
@@ -39,12 +39,12 @@ const userData = [
     },
     {
         username: 'tpenniell7',
-        email: 'kperigo7@china.com.cn',
+        email: 'kperigo7@china.com',
         password: 'password123'
     },
     {
         username: 'msabbins8',
-        email: 'lmongain8@google.ru',
+        email: 'lmongain8@google.com',
         password: 'password123'
     },
     {

@@ -2,19 +2,19 @@ const { Listing } = require('../models');
 
 const listingData = [
     {
-        title: 'tennis racket',
-        description: 'an old worn out tennis racket that nobody wants anymore.',
+        title: 'Tennis Racket',
+        description: 'An old worn out tennis racket that nobody wants anymore.',
         price: 2.55,
         user_id: 1
     },
     {
-        title: 'baseball cards',
+        title: 'Baseball Cards',
         description: '100+ baseball cards from 1998 in mint condition',
         price: 55.00,
         user_id: 2
     },
     {
-        title: 'widescreen tv',
+        title: 'Widescreen TV',
         description: '48 inch Television set with hdmi inputs',
         price: 125,
         user_id: 3
@@ -26,13 +26,13 @@ const listingData = [
         user_id: 4
     },
     {
-        title: 'Alligator boots',
+        title: 'Alligator Boots',
         description: 'Snazzy blue aligator boots, slightly worn',
         price: 2.55,
         user_id: 5
     },
     {
-        title: 'Abbey Road vinyl',
+        title: 'Abbey Road Vinyl',
         description: '1st edition, signed by Ringo Starr',
         price: 9500.00,
         user_id: 1
@@ -45,7 +45,7 @@ const listingData = [
     },
     {
         title: 'Nintendo Switch',
-        description: 'mint condition nintendo switch, barely been played',
+        description: 'Mint condition nintendo switch, barely been played',
         price: 225.00,
         user_id: 3
     },

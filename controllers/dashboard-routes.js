@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const sequelize = require('../config/connection');
-const { Listing, User, Comment, Vote } = require('../models');
+const { Listing, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all listings for dashboard
-router.get('/', withAuth, (req, res) => {
+router.get('/', (req, res) => {
     console.log(req.session);
     console.log('======================');
     Listing.findAll({
@@ -32,36 +32,27 @@ router.get('/', withAuth, (req, res) => {
         });
 });
 
-/* router.get('/edit/:id', withAuth, (req, res) => {
-    Blog.findByPk(req.params.id, {
+router.get('/edit/:id', withAuth, (req, res) => {
+    Listing.findByPk(req.params.id, {
         attributes: [
             'id',
             'title',
-            'blog_content',
-            'created_at',
-            [sequelize.literal('(SELECT COUNT(*) FROM vote WHERE blog.id = vote.blog_id)'), 'vote_count']
+            'description',
+            'created_at'
         ],
         include: [
             {
-                model: Comment,
-                attributes: ['id', 'comment_text', 'blog_id', 'user_id', 'created_at'],
-                include: {
-                    model: User,
-                    attributes: ['username']
-                }
-            },
-            {
                 model: User,
                 attributes: ['username']
-            }
-        ]
-    })
-        .then(dbBlogData => {
-            if (dbBlogData) {
-                const blog = dbBlogData.get({ plain: true });
+            }]
 
-                res.render('edit-blog', {
-                    blog,
+    })
+        .then(dbListingData => {
+            if (dbListingData) {
+                const listing = dbListingData.get({ plain: true });
+
+                res.render('edit-listing', {
+                    listing,
                     loggedIn: true
                 });
             } else {
@@ -72,5 +63,5 @@ router.get('/', withAuth, (req, res) => {
             res.status(500).json(err);
         });
 });
- */
+
 module.exports = router;

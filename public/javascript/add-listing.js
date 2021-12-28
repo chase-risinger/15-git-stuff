@@ -10,7 +10,9 @@ async function newFormHandler(event) {
         body: JSON.stringify({
             title,
             listing_description,
-            price
+            price,
+            user_id,
+
         }),
         headers: {
             'Content-Type': 'application/json'
