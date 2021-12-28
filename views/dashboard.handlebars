@@ -1,0 +1,36 @@
+<section>
+    <h2>Create New Listing</h2>
+
+    <form class="new-listing-form">
+        <div>
+            <label for="listing-title">Title</label>
+            <input type="text" id="listing-title" name="listing-title" />
+        </div>
+        <div>
+            <label for="listing-description">Description</label>
+            <textarea id="listing-description" name="listing-description"></textarea>
+        </div>
+        <div>
+            <label for="listing-price">Price</label>
+            <textarea id="listing-price" name="listing-price"></textarea>
+        </div>
+
+        <button type="submit" class="btn">Create</button>
+    </form>
+</section>
+
+{{#if listings.length}}
+<section>
+    <h2>Your Listings</h2>
+    <ol>
+        {{#each listings as |listing|}}
+        <li>
+            {{> listing-info listing}}
+            <a href="/dashboard/edit/{{listing.id}}" class="edit-link">Edit listing</a>
+        </li>
+        {{/each}}
+    </ol>
+</section>
+{{/if}}
+
+<script src="/javascript/add-listing.js"></script>
