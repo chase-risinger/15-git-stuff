@@ -1,6 +1,10 @@
 node_modules
 .env
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+.DS_Store
+>>>>>>> develop
 
 =======
 .DS_Store
