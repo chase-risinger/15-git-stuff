@@ -4,10 +4,13 @@ const { Listing, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 // get all listings for dashboard
-router.get('/', (req, res) => {
+router.get('/', withAuth, (req, res) => {
     console.log(req.session);
     console.log('======================');
     Listing.findAll({
+        where: {
+            user_id: req.session.user_id
+        },
         attributes: [
             'id',
             'title',
@@ -38,6 +41,7 @@ router.get('/edit/:id', withAuth, (req, res) => {
             'id',
             'title',
             'description',
+            'price',
             'created_at'
         ],
         include: [
