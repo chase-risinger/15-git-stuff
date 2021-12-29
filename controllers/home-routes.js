@@ -2,10 +2,35 @@ const router = require('express').Router();
 const { Listing, User } = require('../models');
 
 router.get('/', (req, res) => {
-    // renders the homepage.handlebars (.handlebars is implied)
-    res.render('homepage');
-});
+    console.log('======================');
+    Listing.findAll({
+        attributes: [
+            'id',
+            'title',
+            'price',
+            'description',
+            'created_at',
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['username']
+            }
+        ]
+    })
+        .then(dbListingData => {
+            const listings = dbListingData.map(listing => listing.get({ plain: true }));
 
+            res.render('homepage', {
+                listings,
+                loggedIn: req.session.loggedIn
+            });
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
 
 router.get('/listing/:id', (req, res) => {
     Listing.findOne({
