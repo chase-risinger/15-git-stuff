@@ -1,0 +1,12 @@
+<article class="post">
+    <div class="contact">
+        <a href="mailto:{{listing.user.email}}?subject={{listing.title}}">Email the seller</a>
+    </div>
+    <div>
+        {{> listing-info listing}}
+    </div>
+    <div class="meta">
+        created by {{listing.user.username}} on
+        {{listing.created_at}}
+    </div>
+</article>
