@@ -1,1 +1,21 @@
-<div>This is the edit listing page</div>
+<article>
+  <a href="/dashboard"> &larr; Back to dashboard</a>
+  <h2>
+    Edit Listing
+  </h2>
+  <form class="edit-listing-form">
+    <div>
+      <input name="listing-title" type="text" value="{{listing.title}}" />
+      <span>({{format_url listing.listing_url}})</span>
+    </div>
+   <div>
+       <a href="/listing/{{listing.id}}"></a>
+   </div>
+    <button type="submit">Save listing</button>
+    <button type="button" class="delete-listing-btn">Delete listing</button>
+  </form>
+</article>
+
+<script src="/javascript/edit-listing.js"></script>
+<script src="/javascript/delete-listing.js"></script>
+
