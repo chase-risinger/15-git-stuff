@@ -88,7 +88,7 @@ router.put('/:id', (req, res) => {
     Listing.update(
         {
             title: req.body.title,
-            description: req.body.blog_content,
+            description: req.body.description,
             price: req.body.price
         },
         {

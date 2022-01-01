@@ -5,12 +5,16 @@
   </h2>
   <form class="edit-listing-form">
     <div>
-      <input name="listing-title" type="text" value="{{listing.title}}" />
-      <span>({{format_url listing.listing_url}})</span>
+      <label for="listing-title">Title</label>
+      <input id="listing-title" name="listing-title" type="text" value="{{listing.title}}" />
+      <label for="listing-price">Price</label>
+      <input id="listing-price" name="listing-price" type="number" value="{{listing.price}}" />
+      <label for="listing-description">Description:</label>
+      <textarea id="listing-description" name="listing-description">{{listing.description}}</textarea>
     </div>
-   <div>
-       <a href="/listing/{{listing.id}}"></a>
-   </div>
+    <div>
+      <a href="/listing/{{listing.id}}"></a>
+    </div>
     <button type="submit">Save listing</button>
     <button type="button" class="delete-listing-btn">Delete listing</button>
   </form>
@@ -18,4 +22,3 @@
 
 <script src="/javascript/edit-listing.js"></script>
 <script src="/javascript/delete-listing.js"></script>
-
