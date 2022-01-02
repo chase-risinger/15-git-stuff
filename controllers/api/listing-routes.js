@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Listing, User } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 
 // get all listings
@@ -67,12 +68,13 @@ router.get('/:id', (req, res) => {
 });
 
 //create a new listing
-router.post('/', (req, res) => {
+// expects {title: 'banana phone', description: 'ring ring ring', price '69', user_id: 1}
+router.post('/', withAuth, (req, res) => {
     Listing.create({
         title: req.body.title,
         description: req.body.description,
         price: req.body.price,
-        user_id: 5
+        user_id: req.session.user_id
     })
         .then(dbListingData => res.json(dbListingData))
         .catch(err => {
@@ -86,7 +88,7 @@ router.put('/:id', (req, res) => {
     Listing.update(
         {
             title: req.body.title,
-            description: req.body.blog_content,
+            description: req.body.description,
             price: req.body.price
         },
         {
