@@ -85,7 +85,11 @@ header {
 header h1 {
   font-size: 1em;
 }
-
+.center{
+  display: block;
+  padding-left: 560px;
+  width: 50%;
+}
 main {
   flex: 1;
   padding: 2% 4%;
@@ -177,6 +181,11 @@ footer {
   font-size: 110%;
 }
 
-main, h1 {
+main div{
   text-align: center;
 }
+
+.login-header{
+  text-align: center;
+}
+

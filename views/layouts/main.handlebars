@@ -13,24 +13,19 @@
         <header>
             <h1>
                 <a href="/">Git Stuff!</a>
+                <img src="public/assets/images/Git_stuff_Final.png" alt= "logo" class="center">
             </h1>
             <nav>
                 {{#if loggedIn}}
                 <a href="/dashboard">Your listings</a>
                 <button id="logout">logout</button>
                 {{else}}
-                <a href="/login">login</a>
+                <a href="/login">Login Here</a>
                 {{/if}}
             </nav>
         </header>
         <main>
-            <h2>Are you looking to Git rid of stuff?</h2>
-            <h3>But Facebook marketplace can't help?</h3>
-            <h4>We are here to help!</h4>
-            <h1>Welcome to Git Stuff!</h1>
-            <img src="public/assets/images/Git_stuff_Final.png" alt= "logo">
-
-            {{{ body }}}
+         {{{ body }}}
 
         </main>
         <footer>
