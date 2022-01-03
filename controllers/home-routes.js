@@ -32,6 +32,10 @@ router.get('/', (req, res) => {
         });
 });
 
+router.get('/multer-test', (req, res) => {
+    res.render('multer-test')
+});
+
 router.get('/listing/:id', (req, res) => {
     Listing.findOne({
         where: {
@@ -68,6 +72,43 @@ router.get('/listing/:id', (req, res) => {
             res.status(500).json(err);
         });
 });
+
+
+router.get('/title/:title', (req, res) => {
+    Listing.findAll({
+        where: {
+            title: req.params.title
+        },
+        attributes: [
+            'id',
+            'title',
+            'description',
+            'price',
+            'created_at'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'email', 'username']
+            }
+
+        ]
+    })
+        .then(dbListingData => {
+            if (dbListingData) {
+                const listing = dbListingData.get({ plain: true });
+                res.render('single-listing', {
+                    listing
+                })
+            } else {
+                res.status(404).end();
+            }
+        })
+        .catch(err => {
+            res.status(500).json(err);
+        });
+
+})
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
