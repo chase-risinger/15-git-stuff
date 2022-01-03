@@ -85,10 +85,10 @@ header {
 header h1 {
   font-size: 1em;
 }
-.center{
-  display: block;
-  padding-left: 560px;
-  width: 50%;
+.headerlogo {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 820%;
 }
 main {
   flex: 1;
