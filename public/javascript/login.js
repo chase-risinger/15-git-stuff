@@ -32,15 +32,17 @@ async function signupFormHandler(event) {
 
   if (username && email && password) {
     console.log('ok were starting')
-    const response = fetch('/api/users', {
+    const response = await fetch('/api/users', {
       method: 'post',
       body: JSON.stringify({ username, email, password }),
       headers: { 'Content-Type': 'application/json' }
     });
 
     if (response.ok) {
+      console.log('good')
       document.location.replace('/dashboard/');
     } else {
+      console.log('bad')
       alert(response.statusText);
     }
   }
