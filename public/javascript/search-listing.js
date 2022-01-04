@@ -12,7 +12,8 @@ async function newSearchHandler(event) {
     });
 
     if (response.ok) {
-        document.location.replace('single-listing');
+        console.log(response)
+        // document.location.replace(`/results/title/${title}`);
     } else {
         alert(response.statusText);
     }

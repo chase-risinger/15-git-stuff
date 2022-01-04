@@ -32,10 +32,8 @@ router.get('/', (req, res) => {
         });
 });
 
-router.get('/multer-test', (req, res) => {
-    res.render('multer-test')
-});
 
+//get a single listing
 router.get('/listing/:id', (req, res) => {
     Listing.findOne({
         where: {
@@ -73,7 +71,7 @@ router.get('/listing/:id', (req, res) => {
         });
 });
 
-
+// get a listing based on search parameters
 router.get('/title/:title', (req, res) => {
     Listing.findAll({
         where: {
@@ -97,7 +95,7 @@ router.get('/title/:title', (req, res) => {
         .then(dbListingData => {
             if (dbListingData) {
                 const listing = dbListingData.get({ plain: true });
-                res.render('single-listing', {
+                res.render('search-results', {
                     listing
                 })
             } else {
