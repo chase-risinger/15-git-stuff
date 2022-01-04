@@ -2,14 +2,17 @@ async function newFormHandler(event) {
     event.preventDefault();
 
     const title = document.querySelector('input[name="listing-title"]').value;
-    const listing_description = document.querySelector('textarea[name="listing-description"]').value;
-    const price = document.querySelector('input[name="listing-title"]')
+    const description = document.querySelector('textarea[name="listing-description"]').value;
+    const price = document.querySelector('input[name="listing-price"]').value;
+    const user_id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+    ];
 
     const response = await fetch(`/api/listings`, {
         method: 'POST',
         body: JSON.stringify({
             title,
-            listing_description,
+            description,
             price,
             user_id,
 
@@ -25,5 +28,7 @@ async function newFormHandler(event) {
         alert(response.statusText);
     }
 }
+
+
 
 document.querySelector('.new-listing-form').addEventListener('submit', newFormHandler);

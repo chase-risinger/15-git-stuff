@@ -1,3 +1,15 @@
+<section>
+  <h2>Search for an item</h2>
+  <form class="search-listing-form">
+    <div>
+      <label for="search-box">Title search:</label>
+      <input type="text" id="search-box" name="search-box" />
+    </div>
+    <button type="submit" class="btn">Search</button>
+  </form>
+</section>
+
+
 <ol class="listing">
   {{#each listings as |listing|}}
   <li>
@@ -5,3 +17,5 @@
   </li>
   {{/each}}
 </ol>
+
+<script src="/javascript/search-listing.js"></script>
