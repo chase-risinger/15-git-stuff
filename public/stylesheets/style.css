@@ -30,11 +30,14 @@ button {
   transition: background-color .1s;
   cursor: pointer;
   border-radius: 5px;
+  flex-wrap: wrap;
 }
 
 button:hover {
   background-color: #3486eb;
 }
+
+
 
 .blog-list {
   margin: 0;
@@ -86,9 +89,8 @@ header h1 {
   font-size: 1em;
 }
 .headerlogo {
-  display: flex;
-  flex-wrap: wrap;
-  padding-left: 820%;
+ display: flexbox;
+ flex: auto;
 }
 main {
   flex: 1;
@@ -186,6 +188,9 @@ main div{
 }
 
 .login-header{
+  text-align: center;
+}
+.createlisting{
   text-align: center;
 }
 
