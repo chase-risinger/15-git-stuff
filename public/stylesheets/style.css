@@ -30,6 +30,7 @@ button {
   transition: background-color .1s;
   cursor: pointer;
   border-radius: 5px;
+  flex-wrap: wrap;
 }
 
 button:hover {
@@ -84,6 +85,22 @@ header {
 
 header h1 {
   font-size: 1em;
+}
+.git-logo {
+  max-width: 50px;
+  max-height: 50px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  margin: 0 auto;
+  margin-left: 423px;
+  max-height: 200%;
+  max-width: 200%;
+  align-items: center;
 }
 
 main {
@@ -176,3 +193,15 @@ footer {
   padding: 1%;
   font-size: 110%;
 }
+
+main div{
+  text-align: center;
+}
+
+.login-header{
+  text-align: center;
+}
+.createlisting{
+  text-align: center;
+}
+

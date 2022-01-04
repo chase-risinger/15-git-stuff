@@ -61,6 +61,66 @@ const listingData = [
         price: 55.00,
         user_id: 5
     },
+    {
+        title: 'Microwave',
+        description: 'Another microwave, this one is way more expensive',
+        price: 600,
+        user_id: 6
+    },
+    {
+        title: 'Lawnmower',
+        description: 'Another lawnmower, this one is in horrible shape so it is free',
+        price: 0,
+        user_id: 7
+    },
+    {
+        title: 'Nintendo Switch',
+        description: 'Another Nintendo Switch, but Im taking advantage of the fact that there is a semiconductor shortage',
+        price: 900,
+        user_id: 8
+    },
+    {
+        title: 'Pokemon Cards',
+        description: 'More Pokemon cards, but these ones are lame',
+        price: 1.50,
+        user_id: 9
+    },
+    {
+        title: 'Abbey Road Vinyl',
+        description: 'Regular old record, not signed by anybody',
+        price: 30.00,
+        user_id: 10
+    },
+    {
+        title: 'Alligator Boots',
+        description: 'BRAND NEW! NEVER BEEN WORN!!!',
+        price: 75,
+        user_id: 9
+    },
+    {
+        title: 'Tennis Racket',
+        description: 'BRAND NEW! NEVER EVEN BEEN SWUNG!!!',
+        price: 50,
+        user_id: 8
+    },
+    {
+        title: 'Baseball Cards',
+        description: '2 baseball cards, some schmucks nobody heard of',
+        price: 1,
+        user_id: 7
+    },
+    {
+        title: 'Widescreen TV',
+        description: '10 inch Television set with hdmi inputs',
+        price: 25,
+        user_id: 6
+    },
+    {
+        title: 'Fender Stratocaster',
+        description: 'fire engine red, signed by all the members of KISS',
+        price: 2500.00,
+        user_id: 10
+    },
 ]
 
 const seedListings = () => Listing.bulkCreate(listingData);
