@@ -37,8 +37,6 @@ button:hover {
   background-color: #3486eb;
 }
 
-
-
 .blog-list {
   margin: 0;
   padding: 0;
@@ -88,10 +86,23 @@ header {
 header h1 {
   font-size: 1em;
 }
-.headerlogo {
- display: flexbox;
- flex: auto;
+.git-logo {
+  max-width: 50px;
+  max-height: 50px;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
 }
+
+.header-logo {
+  display: flex;
+  margin: 0 auto;
+  margin-left: 423px;
+  max-height: 200%;
+  max-width: 200%;
+  align-items: center;
+}
+
 main {
   flex: 1;
   padding: 2% 4%;
