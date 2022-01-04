@@ -1,0 +1,8 @@
+<p>This is the search results page</p>
+<ol class="listing">
+    {{#each listings as |listing|}}
+    <li>
+        {{> listing-info listing }}
+    </li>
+    {{/each}}
+</ol>

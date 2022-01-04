@@ -2,7 +2,14 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Listing, User } = require('../../models');
 const withAuth = require('../../utils/auth');
+const multer = require('multer')
+const upload = multer({ dest: 'uploads/' })
+const fs = require('fs');
 
+// post a photo
+router.post('/multer-test', upload.single('photo'), function (req, res, next) {
+    fs.write(req.file, req.body)
+});
 
 // get all listings
 router.get('/', (req, res) => {
@@ -56,6 +63,42 @@ router.get('/:id', (req, res) => {
         .then(dbListingData => {
             if (!dbListingData) {
                 res.status(404).json({ message: 'no listing found with this id' });
+                return
+
+            }
+            res.json(dbListingData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+        });
+});
+
+router.get('/title/:title', (req, res) => {
+    console.log('======================');
+
+    Listing.findAll({
+        where: {
+            title: req.params.title
+        },
+        attributes: [
+            'id',
+            'title',
+            'description',
+            'price',
+            'created_at'
+        ],
+        include: [
+            {
+                model: User,
+                attributes: ['id', 'email', 'username']
+            }
+
+        ]
+    })
+        .then(dbListingData => {
+            if (!dbListingData) {
+                res.status(404).json({ message: 'no listing found with this title' });
                 return
 
             }
