@@ -1,7 +1,9 @@
 const router = require('express').Router();
 const { Listing, User } = require('../models');
 
+// get a listing based on search parameters
 router.get('/title/:title', (req, res) => {
+    console.log('======================');
     Listing.findAll({
         where: {
             title: req.params.title
@@ -9,8 +11,8 @@ router.get('/title/:title', (req, res) => {
         attributes: [
             'id',
             'title',
-            'description',
             'price',
+            'description',
             'created_at'
         ],
         include: [
@@ -23,9 +25,9 @@ router.get('/title/:title', (req, res) => {
     })
         .then(dbListingData => {
             if (dbListingData) {
-                const listing = dbListingData.get({ plain: true });
+                const listings = dbListingData.map(listing => listing.get({ plain: true }));
                 res.render('search-results', {
-                    listing
+                    listings
                 })
             } else {
                 res.status(404).end();

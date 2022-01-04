@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { Listing, User } = require('../models');
 
+
 router.get('/', (req, res) => {
     console.log('======================');
     Listing.findAll({
@@ -71,8 +72,10 @@ router.get('/listing/:id', (req, res) => {
         });
 });
 
-// get a listing based on search parameters
+
+// get listings based on search parameters
 router.get('/title/:title', (req, res) => {
+    console.log('======================');
     Listing.findAll({
         where: {
             title: req.params.title
@@ -80,8 +83,8 @@ router.get('/title/:title', (req, res) => {
         attributes: [
             'id',
             'title',
-            'description',
             'price',
+            'description',
             'created_at'
         ],
         include: [
@@ -94,9 +97,9 @@ router.get('/title/:title', (req, res) => {
     })
         .then(dbListingData => {
             if (dbListingData) {
-                const listing = dbListingData.get({ plain: true });
+                const listings = dbListingData.map(listing => listing.get({ plain: true }));
                 res.render('search-results', {
-                    listing
+                    listings
                 })
             } else {
                 res.status(404).end();
@@ -106,7 +109,7 @@ router.get('/title/:title', (req, res) => {
             res.status(500).json(err);
         });
 
-})
+});
 
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

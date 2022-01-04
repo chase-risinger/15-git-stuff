@@ -13,7 +13,7 @@ async function newSearchHandler(event) {
 
     if (response.ok) {
         console.log(response)
-        // document.location.replace(`/results/title/${title}`);
+        document.location.replace(`/title/${title}`);
     } else {
         alert(response.statusText);
     }
