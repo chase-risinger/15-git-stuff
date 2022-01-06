@@ -70,7 +70,7 @@ router.post('/', (req, res) => {
 });
 
 // login
-/* router.post('/login', (req, res) => {
+router.post('/login', (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
@@ -99,7 +99,7 @@ router.post('/', (req, res) => {
             res.json({ user: dbUserData, message: 'You are now logged in!' });
         });
     });
-}); */
+}); 
 
 
 // logout

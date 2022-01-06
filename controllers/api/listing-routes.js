@@ -2,8 +2,6 @@ const router = require('express').Router();
 const sequelize = require('../../config/connection');
 const { Listing, User } = require('../../models');
 const withAuth = require('../../utils/auth');
-const multer = require('multer')
-const upload = multer({ dest: 'uploads/' })
 const fs = require('fs');
 
 // post a photo

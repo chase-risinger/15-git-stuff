@@ -32,6 +32,7 @@
         <li>
             {{> listing-info listing}}
             <a href="/dashboard/edit/{{listing.id}}" class="edit-link">Edit listing</a>
+            <a data-id="{{post.id}}" class="delete-listing-btn">Delete Post</a>
         </li>
         {{/each}}
     </ol>
@@ -39,3 +40,4 @@
 {{/if}}
 
 <script src="/javascript/add-listing.js"></script>
+<script src="/javascript/delete-listing.js"></script>
