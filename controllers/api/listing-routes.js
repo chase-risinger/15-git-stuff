@@ -4,10 +4,6 @@ const { Listing, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 const fs = require('fs');
 
-// post a photo
-router.post('/multer-test', upload.single('photo'), function (req, res, next) {
-    fs.write(req.file, req.body)
-});
 
 // get all listings
 router.get('/', (req, res) => {
