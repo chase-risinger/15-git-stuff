@@ -25,10 +25,10 @@ In order for the application to be used, the user would need the command-line, m
 To perform tests, the user would need insomnia to check if all the routes functionality work properly.
 
 ## Contributors
-* chase-risinger
-* candre02
-* EJCalderon
-* Keithm0258
+* [chase-risinger](https://www.github.com/chase-risinger)
+* [candre02](https://www.github.com/candre02)
+* [EJCalderon](https://www.github.com/EJCalderon)
+* [Keithm0258](https://www.github.com/Keithm0258)
 
 ## Images
 ![Git_stuff_Final](https://user-images.githubusercontent.com/81876258/148561769-a556f183-df90-4497-b702-f3a0c6800e07.png)
