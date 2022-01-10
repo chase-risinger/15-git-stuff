@@ -17,8 +17,6 @@ a {
   transition: color .1s;
 }
 
-
-
 a:hover {
   color: #3486eb;
 }
@@ -194,6 +192,7 @@ main div{
 }
 .login-here{
   font-size: 24px;
+  padding: 50px, 50px, 50px, 100px;
 }
 .searching{
   margin-left: 27px;
@@ -201,4 +200,13 @@ main div{
 }
 .item-search{
   font-weight: normal;
+}
+.header-logo{
+  margin-left: 510px;
+  max-width: 150px;
+  max-width: 150px;
+  flex: inherit;
+}
+.git-stuff-link{
+  padding-bottom: 100px;
 }
